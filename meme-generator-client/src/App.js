@@ -37,15 +37,14 @@ class App extends React.Component {
     )
   }
   fetchFromBackend = () => {
-    return fetch("http://localhost:3000/api/v1/memes.json").then(resp=>resp.json()).then(result => console.log(result))
+    return fetch("http://localhost:3000/api/v1/memes").then(resp=>resp.json()).then(result => console.log(result))
   }
   fetchClickedMeme = (memeId) => {
-    fetch(newMemeUrl, {
+    return fetch('http://localhost:3000/api/v1/memes', {
       method: "POST",
      
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
