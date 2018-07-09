@@ -37,7 +37,7 @@ class App extends React.Component {
     )
   }
   fetchFromBackend = () => {
-    return fetch("http://localhost:3000/api/v1/memes").then(resp=>resp.json()).then(result => console.log(result))
+    return fetch("http://localhost:3000/api/v1/memes").then(resp => resp.json()).then(result => console.log(result))
   }
   fetchClickedMeme = (memeId) => {
     return fetch('http://localhost:3000/api/v1/memes', {
