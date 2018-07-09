@@ -28,6 +28,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchApi();
+    this.fetchFromBackend()
   }
 
   fetchApi = () => {
@@ -35,22 +36,25 @@ class App extends React.Component {
       // 
     )
   }
-
+  fetchFromBackend = () => {
+    return fetch("http://localhost:3000/api/v1/memes.json").then(resp=>resp.json()).then(result => console.log(result))
+  }
   fetchClickedMeme = (memeId) => {
     fetch(newMemeUrl, {
       method: "POST",
+     
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
         "Access-Control-Allow-Origin": "*",
         Accept: "application/json"
       },
-      body: {
+      body: JSON.stringify({
         template_id: memeId,
         username: "kasiarosenb",
         password: "kasiarosenb",
         text0: this.state.text0,
         text1: this.state.text1
-      }
+      })
     })
       .then(response => response.json())
       .then(result => console.log("posted clicked!", result));
