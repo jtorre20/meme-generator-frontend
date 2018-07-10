@@ -27,6 +27,7 @@ class MemesList extends React.Component {
       </p>
     </div>;
   }
+  "latest change"
 };
 
 export default MemesList;
