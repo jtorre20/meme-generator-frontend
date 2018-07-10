@@ -12,13 +12,7 @@ class App extends React.Component {
 
     this.state = {
       memes: [],
-      myMemes: [{
-        height: 800,
-        id: "112126428",
-        name: "Distracted Boyfriend",
-        url: "https://i.imgflip.com/1ur9b0.jpg",
-        width: 1200
-      }],
+      myMemes: [],
       memeLimit: 15,
       addMeme: 10,
       text0: '',
@@ -29,6 +23,10 @@ class App extends React.Component {
   componentDidMount() {
     this.fetchApi();
     this.fetchFromBackend()
+  }
+
+  allMemes = () => {
+    this.state.myMemes
   }
 
   fetchApi = () => {
@@ -56,14 +54,14 @@ class App extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(result => console.log("posted clicked!", result));
+      .then(result => this.setState({myMemes:[...this.state.myMemes, result]}));
         // this.state.myMemes
   }
 
   render() {
     return <div>
         <h2>Create Your Own Meme!</h2>
-        <Meme myMemes={this.state.myMemes} />
+        <Meme myMemes={this.state.myMemes} allMemes={this.allMemes} />
         <h4>
           <i>Insert Some Text Below</i>
         </h4>

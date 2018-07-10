@@ -2,13 +2,15 @@ import React, { Component } from "react";
 
 class Meme extends Component {
   render() {
+    const {myMemes, allMemes} = this.props
     return (
       <div>
-        {this.props.myMemes.map(meme => {
+        {myMemes.map(meme => {
+          console.log(meme.data.attributes.url)
           return (
             <img
               key={meme.id}
-              src={meme.url}
+              src={meme.data.attributes.url}
               alt="my-meme"
               className="my-meme-img"
             />
