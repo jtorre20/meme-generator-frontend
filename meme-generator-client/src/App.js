@@ -67,11 +67,11 @@ class App extends React.Component {
         </h4>
         <Form inline>
           <FormGroup>
-            <ControlLabel>Top</ControlLabel> <FormControl type="text" onChange={event => this.setState(
+            <ControlLabel>Blurb 1</ControlLabel> <FormControl type="text" onChange={event => this.setState(
                   { text0: event.target.value }
                 )} />
           </FormGroup> <FormGroup>
-            <ControlLabel>Bottom</ControlLabel> <FormControl type="text" onChange={event => this.setState(
+            <ControlLabel>Blurb 2</ControlLabel> <FormControl type="text" onChange={event => this.setState(
                   { text1: event.target.value }
                 )} />
           </FormGroup>

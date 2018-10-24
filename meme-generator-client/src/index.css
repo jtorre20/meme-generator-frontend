@@ -1,7 +1,7 @@
 body {
   text-align: center;
   padding: 5%;
-  background-color:#1fa091;
+  background-color:#57918ad3;
   color: #e664bc;
   font-family: Arial;
 }
@@ -62,4 +62,13 @@ body {
   background-color: #e664bc;
   filter: brightness(30%);
 }
+
+.control-label {
+  text-align: center
+}
+
+.form-control {
+  text-align: center
+}
+
 
